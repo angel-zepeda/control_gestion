@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light text-white" style="background-color: rgb(2, 185, 167);">
+<nav class="navbar navbar-dark text-white" style="background-color: gray;">
   <%if user_signed_in?%>
     <p>Bienvenido <%= current_user.email %></p>
     <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
@@ -6,3 +6,4 @@
     <%= link_to "Iniciar sesión", new_user_session_path%>
   <%end%>
 </nav>
+<br>

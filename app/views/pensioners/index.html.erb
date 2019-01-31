@@ -1,32 +1,76 @@
 <p id="notice"><%= notice %></p>
+<% if current_user.role == 'secretaria' %>
+  <div class="row">
+    <div class="col-md-8">
+    <%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
+      <%= text_field :keyword, nil, placeholder: 'Buscador', class:'form-control col-md-6'%>
+      <br>
+      <%= button_tag :Buscar, class:'btn btn-secondary col-md-3'%>
+    <% end %>
+  </div>
+    </div>
+<% end %>
+<% if current_user.role == 'integrador' %>
+  <div class="row">
+    <div class="col-md-8">
+    <%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
+      <%= text_field :keyword, nil, placeholder: 'Buscador', class:'form-control col-md-6'%>
+      <br>
+      <%= button_tag :Buscar, class:'btn btn-secondary col-md-3'%>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="float-right">
+        <%= link_to "EXPORTAR xlsx", pensioners_path(format: "xlsx"),class:'btn btn-success text-white'%>
+    </div>
+  </div>
+  </div>
+<% end %>
+<% if current_user.role == 'coordinador' %>
+  <div class="row">
+    <div class="col-md-8">
+    <%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
+      <%= text_field :keyword, nil, placeholder: 'Buscador', class:'form-control col-md-6'%>
+      <br>
+      <%= button_tag :Buscar, class:'btn btn-secondary col-md-3'%>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <div class="float-right">
+        <%= link_to "EXPORTAR xlsx", pensioners_path(format: "xlsx"),class:'btn btn-success text-white'%>
+    </div>
+  </div>
+  </div>
+<% end %>
 
 <div class="resultados"></div>
-
-<div class="row">
-<%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
-  <%= text_field :keyword, nil, placeholder: 'Buscador'%>
-  <%= button_tag :Enviar, class:'btn btn-secondary'%>
-<% end %>
-<hr>
 <!-- <%= form_tag '/search/filter', method: :get, remote: true, id: "search-form" do %>
   <%= date_select :date_keyword, nil%>
   <%= button_tag :Enviar%>
 <% end %> -->
+<!-- <div class="col-md-12">
+
   <% if current_user.role == 'coordinador' %>
+    <%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
+      <%= text_field :keyword, nil, placeholder: 'Buscador', class:'form-control'%>
+      <br>
+      <%= button_tag :Buscar, class:'btn btn-secondary'%>
+    <% end %>
     <%= button_tag :Atendidos, class:'btn btn-warning mr-3'%>
     <%= button_tag 'En firma', class:'btn btn-primary mr-3'%>
     <%= button_tag 'Por antender', class:'btn btn-info mr-3'%>
-    <%= link_to "EXPORTAR xlsx", pensioners_path(format: "xlsx"),class:'btn btn-success text-white'%>
+    <%= link_to "EXPORTAR xlsx", pensioners_path(format: "xlsx"),class:'btn btn-info text-white'%>
   <% end %>
-</div>
+</div> -->
+
 
 
 <br>
 <% if current_user.role.include?('secretaria')%>
   <%= link_to 'Nuevo registro', new_pensioner_path, class:'btn btn-primary text-white float-right mb-3' %>
-<% end %>
-<table class="table">
-  <thead>
+
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
     <tr>
       <th scope="col">Turno</th>
       <th scope="col">Número oficio</th>
@@ -61,4 +105,5 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 <%= will_paginate @pensioners, previus_label: 'Anterior', next_label: 'Siguiente' %>

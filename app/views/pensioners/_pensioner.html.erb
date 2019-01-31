@@ -1,18 +1,38 @@
-<table class="table">
-  <thead>
+<br>
+<br>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
     <tr>
+
       <th scope="col">Turno</th>
       <th scope="col">Numero oficio</th>
       <th scope="col">Fecha oficio</th>
       <th scope="col">Fecha recepcion</th>
       <th scope="col">Nombre promovente</th>
+      <th scope="col">Turnado</th>
       <th scope="col">Numero juicio</th>
       <th scope="col">Numero correspondencia</th>
       <th scope="col">Anexos</th>
+
+      <% if current_user.role.include?('integrador')%>
+        <th scope="col">Numero pensión</th>
+        <th scope="col">Sala</th>
+        <th scope="col">Tipo expediente</th>
+        <th scope="col">Numero expediente</th>
+        <th scope="col">Observaciones</th>
+        <th scope="col">Letra</th>
+        <th scope="col">Termino de la sentencia</th>
+        <th scope="col">Envio juridico</th>
+        <th scope="col">Monto cheque</th>
+        <th scope="col">Ajuste cuota</th>
+        <th scope="col">Estatus del expediente</th>
+        <th scope="col">Clasificación del expediente</th>
+        <th scope="col">Anexos</th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
-  <tbody>
+
     <tbody>
       <tr>
         <td><%= pensioner.turno %></td>
@@ -20,14 +40,68 @@
         <td><%= pensioner.fecha_oficio %></td>
         <td><%= pensioner.fecha_recepcion %></td>
         <td><%= pensioner.promovente %></td>
+        <td><%= pensioner.turnado %></td>
         <td><%= pensioner.numero_juicio %></td>
         <td><%= pensioner.numero_correspondencia %></td>
         <td><%= link_to pensioner.anexo1.original_filename, pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
-        <% if current_user.role.include?('integrador') or current_user.role.include?('coordinador')%>
-          <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-danger text-white' %></td>
-          <td><%= link_to 'Mostrar', pensioner_path(pensioner),class:'btn btn-info text-white' %></td>
+        <% if current_user.role.include?('integrador') %>
+          <td><%= pensioner.numero_pension %></td>
+          <td><%= pensioner.sala %></td>
+          <td><%= pensioner.tipo_expediente %></td>
+          <td><%= pensioner.numero_expediente %></td>
+          <td><%= pensioner.observaciones %></td>
+          <td><%= pensioner.letra%></td>
+          <td><%= pensioner.termino%></td>
+          <td><%= pensioner.envio_juridico %></td>
+          <td><%= pensioner.monto_cheque %></td>
+          <td><%= pensioner.ajuste_cuota %></td>
+          <td><%= pensioner.estatus_expediente%></td>
+          <td><%= pensioner.clasificacion%></td>
+          <% if pensioner.anexo2?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+          <% if pensioner.anexo3?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+          <% if pensioner.anexo4?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+          <% if pensioner.anexo5?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+          <% if pensioner.anexo6?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+          <% if pensioner.anexo7?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+          <% if pensioner.anexo8?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+          <% if pensioner.anexo9?%>
+            <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+            <% else %>
+            <td>.</td>
+          <% end %>
+
         <% end %>
       </tr>
     </tbody>
-  </tbody>
+    <% if current_user.role.include?('integrador') or current_user.role.include?('coordinador')%>
+      <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
+    <% end %>
 </table>

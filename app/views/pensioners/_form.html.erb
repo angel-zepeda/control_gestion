@@ -60,10 +60,10 @@
 
       <div class="actions col-md-12">
         <div class="float-left">
-          <%= link_to 'Atras', pensioner, class:'btn btn-secondary text-white col-md-12' %>
+          <%= link_to 'Atras', pensioner, class:'btn btn-danger text-white col-md-12' %>
         </div>
         <div class="float-right">
-          <%= form.submit "Enviar", class:'btn btn-primary col-md-12 form-control'%>
+          <%= form.submit "Enviar", class:'btn btn-danger col-md-12 form-control'%>
         </div>
       </div>
     </div>
@@ -77,12 +77,12 @@
       <div class="field col-md-3">
         <%= form.label :sala %><br>
         <!-- <%= form.text_field :sala, class:'col-md-12 form-control' %> -->
-        <%= form.select :sala, options_for_select(['', '1ra', '2da', '3ra'])%>
+        <%= form.text_field :sala, class:'col-md-4 form-control'%>
       </div>
       <div class="field col-md-3">
         <%= form.label :tipo_expediente %><br>
         <!-- <%= form.text_field :tipo_expediente, class:'col-md-12 form-control' %> -->
-        <%= form.select :tipo_expediente, options_for_select(['Original', 'Provicional', 'Copia certificada']) %>
+        <%= form.select :tipo_expediente, options_for_select(['', 'Original', 'Provicional', 'Copia certificada']) %>
       </div>
       <div class="field col-md-3">
         <%= form.label :numero_expediente %><br>
@@ -106,11 +106,11 @@
       </div>
       <div class="field col-md-2">
         <%= form.label :monto_cheque %><br>
-        <%= form.number_field :monto_cheque, class:'col-md-12 form-control' %>
+        <%= form.text_field :monto_cheque, class:'col-md-12 form-control' %>
       </div>
       <div class="field col-md-2">
         <%= form.label :ajuste_cuota %><br>
-        <%= form.number_field :ajuste_cuota, class:'col-md-12 form-control' %>
+        <%= form.text_field :ajuste_cuota, class:'col-md-12 form-control' %>
       </div>
       <div class="field col-md-3">
         <%= form.label :mes_instalación %><br>
@@ -160,10 +160,10 @@
       </div>
       <div class="actions col-md-12">
         <div class="float-left">
-          <%= link_to 'Atras', pensioners_path, class:'btn btn-secondary text-white col-md-12' %>
+          <%= link_to 'Atras', pensioners_path, class:'btn btn-danger text-white col-md-12' %>
         </div>
         <div class="float-right">
-          <%= form.submit "Enviar", class:'btn btn-primary col-md-12 form-control'%>
+          <%= form.submit "Enviar", class:'btn btn-danger col-md-12 form-control'%>
         </div>
       </div>
     </div>
@@ -237,10 +237,10 @@
     </div>
     <div class="actions col-md-12">
       <div class="float-left">
-        <%= link_to 'Atras', pensioners_path, class:'btn btn-secondary text-white col-md-12' %>
+        <%= link_to 'Atras', pensioners_path, class:'btn btn-danger text-white col-md-12' %>
       </div>
       <div class="float-right">
-        <%= form.submit "Enviar", class:'btn btn-primary col-md-12 form-control'%>
+        <%= form.submit "Enviar", class:'btn btn-danger col-md-12 form-control'%>
       </div>
     </div>
   </div>

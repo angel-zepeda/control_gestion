@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_223315) do
+ActiveRecord::Schema.define(version: 2019_01_31_181550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 2019_01_29_223315) do
     t.string "letra"
     t.date "termino"
     t.date "envio_juridico"
-    t.float "monto_cheque"
-    t.float "ajuste_cuota"
+    t.string "monto_cheque"
+    t.string "ajuste_cuota"
     t.string "estatus_expediente"
     t.string "clasificacion"
     t.date "mes_instalacion"
