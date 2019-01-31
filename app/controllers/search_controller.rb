@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def create
     palabra = params[:keyword]
-    @pensioner = Pensioner.where(numero_oficio: palabra).or(Pensioner.where(promovente: palabra))
+    @pensioner = Pensioner.where(numero_oficio: palabra).or(Pensioner.where(promovente: palabra)).or(Pensioner.where(numero_pension: palabra)).or(Pensioner.where(numero_juicio: palabra))
     if @pensioner
       respond_to do |format|
         format.json { render json: @pensioner }
