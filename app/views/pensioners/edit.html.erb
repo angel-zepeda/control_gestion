@@ -1,0 +1,34 @@
+<% if current_user.role == 'integrador' or current_user.role == 'coordinador'%>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Turno</th>
+        <th scope="col">Número oficio</th>
+        <th scope="col">Fecha oficio</th>
+        <th scope="col">Fecha recepción</th>
+        <th scope="col">Promovente</th>
+        <th scope="col">Número juicio</th>
+        <th scope="col">Turnado</th>
+        <th scope="col">Número correspondencia</th>
+        <th scope="col">Anexo</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @pensioner.turno %></td>
+        <td><%= @pensioner.numero_oficio %></td>
+        <td><%= @pensioner.fecha_oficio %></td>
+        <td><%= @pensioner.fecha_recepcion %></td>
+        <td><%= @pensioner.promovente %></td>
+        <td><%= @pensioner.numero_juicio %></td>
+        <td><%= @pensioner.turnado %></td>
+        <td><%= @pensioner.numero_correspondencia%></td>
+        <td><%= link_to @pensioner.anexo1.original_filename, @pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <br>
+  <%= render 'form', pensioner: @pensioner %>
+<% end %>

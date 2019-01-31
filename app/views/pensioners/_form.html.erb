@@ -1,0 +1,249 @@
+<%= form_with(model: pensioner, local: true) do |form| %>
+  <% if current_user.role == 'secretaria'%>
+    <% if pensioner.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(pensioner.errors.count, "error") %> prohibited this pensioner from being saved:</h2>
+        <ul>
+          <% pensioner.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="field col-md-2">
+        <%= form.label :turno %><br>
+        <%= form.number_field :turno, class:'col-md-12 form-control' %>
+      </div>
+
+      <div class="field col-md-3">
+        <%= form.label :numero_correspondencia %><br>
+        <%= form.text_field :numero_correspondencia, class:'col-md-12 form-control' %>
+      </div>
+
+      <div class="field col-md-3">
+        <%= form.label :numero_oficio %><br>
+        <%= form.number_field :numero_oficio, class:'col-md-12 form-control' %>
+      </div>
+
+      <div class="field col-md-3">
+        <%= form.label :fecha_oficio %><br>
+        <%= form.date_select :fecha_oficio, class:'col-md-12 form-control'%>
+      </div>
+
+      <div class="field col-md-3">
+        <%= form.label :fecha_recepcion %><br>
+        <%= form.date_select :fecha_recepcion, class:'col-md-12 form-control' %>
+      </div>
+
+      <div class="field col-md-6">
+        <%= form.label :promovente %><br>
+        <%= form.text_field :promovente, placeholder: 'Apellidos/Nombre(s)', class:'col-md-12 form-control' %>
+      </div>
+
+      <div class="field col-md-3">
+        <%= form.label :numero_juicio %><br>
+        <%= form.text_field :numero_juicio, class:'col-md-12 form-control' %>
+      </div>
+
+      <div class="field col-md-3">
+        <%= form.label :turnado %><br>
+        <%= form.text_field :turnado, class:'col-md-12 form-control'%>
+        <!-- <%= form.select :turnado, options_for_select(['1', '2', '11'])%> -->
+      </div>
+
+      <div class="field col-md-3">
+        <%= form.label :Anexo %><br>
+        <%= form.file_field :anexo1, class:'col-md-12 form-control'%>
+      </div>
+
+      <div class="actions col-md-12">
+        <div class="float-left">
+          <%= link_to 'Atras', pensioner, class:'btn btn-secondary text-white col-md-12' %>
+        </div>
+        <div class="float-right">
+          <%= form.submit "Enviar", class:'btn btn-primary col-md-12 form-control'%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if current_user.role == 'integrador'%>
+    <div class="row">
+      <div class="field col-md-3">
+        <%= form.label :número_pensión %><br>
+        <%= form.number_field :numero_pension, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :sala %><br>
+        <!-- <%= form.text_field :sala, class:'col-md-12 form-control' %> -->
+        <%= form.select :sala, options_for_select(['', '1ra', '2da', '3ra'])%>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :tipo_expediente %><br>
+        <!-- <%= form.text_field :tipo_expediente, class:'col-md-12 form-control' %> -->
+        <%= form.select :tipo_expediente, options_for_select(['Original', 'Provicional', 'Copia certificada']) %>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :numero_expediente %><br>
+        <%= form.text_field :numero_expediente, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label :observaciones %><br>
+        <%= form.text_area :observaciones, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-2">
+        <%= form.label :letra %><br>
+        <%= form.text_field :letra, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label "Termino de la sentencia"%><br>
+        <%= form.date_select :termino, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :envio_juridico %><br>
+        <%= form.date_select :envio_juridico, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-2">
+        <%= form.label :monto_cheque %><br>
+        <%= form.number_field :monto_cheque, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-2">
+        <%= form.label :ajuste_cuota %><br>
+        <%= form.number_field :ajuste_cuota, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :mes_instalación %><br>
+        <%= form.date_select :mes_instalacion, class:'col-md-12 form-control' %>
+      </div>
+
+      <div class="field col-md-2">
+        <%= form.label 'Estatus de expediente'%><br>
+        <%= form.select :estatus_expediente, options_for_select(['', 'Integración', 'Liquidación', 'Atendido']),class:'col-md-12' %>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label 'Clasificación del expediente'%><br>
+        <%= form.select :clasificacion, options_for_select(['', 'Nulidad', 'Queja', 'Amparo', 'Manifestación']),class:'col-md-12' %>
+      </div>
+
+      <div class="field col-md-4">
+        <%= form.label "Anexo 1" %><br>
+        <%= form.file_field :anexo2, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label "Anexo 2"%><br>
+        <%= form.file_field :anexo3, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label "Anexo 3"%><br>
+        <%= form.file_field :anexo4, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label "Anexo 4"%><br>
+        <%= form.file_field :anexo5, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label "Anexo 5"%><br>
+        <%= form.file_field :anexo6, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label "Anexo 6"%><br>
+        <%= form.file_field :anexo7, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label "Anexo 7"%><br>
+        <%= form.file_field :anexo8, class:'col-md-12 form-control' %>
+      </div>
+      <div class="field col-md-4">
+        <%= form.label "Anexo 8"%><br>
+        <%= form.file_field :anexo9, class:'col-md-12 form-control' %>
+      </div>
+      <div class="actions col-md-12">
+        <div class="float-left">
+          <%= link_to 'Atras', pensioners_path, class:'btn btn-secondary text-white col-md-12' %>
+        </div>
+        <div class="float-right">
+          <%= form.submit "Enviar", class:'btn btn-primary col-md-12 form-control'%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if current_user.role == 'coordinador'%>
+  <div class="row">
+    <div class="field col-md-3">
+      <%= form.label :que_se_liquida %><br>
+      <%= form.select :que_se_liquida, options_for_select(['', 'Nulidad', 'Queja', 'Amparo', 'Acuerdo']),class:'col-md-12' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :fecha_liquidacion %><br>
+      <%= form.date_select :fecha_liquidacion, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :autoridad_cumplimiento %><br>
+      <%= form.text_field :autoridad_cumplimiento, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :materia %><br>
+      <%= form.text_field :materia, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :numero_uj %><br>
+      <%= form.text_field :numero_uj, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :fecha_uj %><br>
+      <%= form.date_select :fecha_uj, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :numero_sp %><br>
+      <%= form.number_field :numero_sp, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :fecha_sp %><br>
+      <%= form.date_select :fecha_sp, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :fecha_sentencia %><br>
+      <%= form.date_select :fecha_sentencia, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :integrador %><br>
+      <%= form.text_field :integrador, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :liquidador %><br>
+      <%= form.text_field :liquidador, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-3">
+      <%= form.label :estado_final %><br>
+      <%= form.select :estado_final, options_for_select(['', 'Pendiente', 'En firma', 'Atendido']), class:'col-md-12' %>
+    </div>
+    <div class="field col-md-4">
+      <%= form.label "Anexo 1"%><br>
+      <%= form.file_field :anexo10, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-4">
+      <%= form.label "Anexo 2"%><br>
+      <%= form.file_field :anexo11, class:'col-md-12 form-control' %>
+    </div>
+    <div class="field col-md-4">
+      <%= form.label "Anexo 3"%><br>
+      <%= form.file_field :anexo12, class:'col-md-12 form-control' %>
+    </div>
+
+    <div class="row">
+
+    </div>
+    <div class="actions col-md-12">
+      <div class="float-left">
+        <%= link_to 'Atras', pensioners_path, class:'btn btn-secondary text-white col-md-12' %>
+      </div>
+      <div class="float-right">
+        <%= form.submit "Enviar", class:'btn btn-primary col-md-12 form-control'%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+<% end %>

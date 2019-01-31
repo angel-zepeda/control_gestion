@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Pensioners") do |sheet|
+    sheet.add_row %w(Turno Número_Oficio FechaOficio FechaRecepción NombrePromovente NúmeroJuicio
+    Turnado NúmeroCorrespondencia Anexo1 NúmeroPensión Sala TipoExpediente NúmeroExpediente Observaciones
+    Letra TerminoSentencia EnvioJuridico MontoCheque AjusteCuota EstatusExpediente Clasificación
+    QuéSeLiquida FehcaLiquidación AutoridadCumplimiento Materia NúmeroUJ FechaUJ NúmeroSP FechaSP
+    FechaSentencia Integrador Liquidador EstatusFinal)
+  @pensioners.each do |pensioner|
+    sheet.add_row [pensioner.turno, pensioner.numero_oficio, pensioner.fecha_oficio, pensioner.fecha_recepcion,
+    pensioner.promovente, pensioner.numero_juicio, pensioner.turnado, pensioner.numero_correspondencia, pensioner.anexo1.original_filename,
+    pensioner.numero_pension, pensioner.sala, pensioner.tipo_expediente, pensioner.numero_expediente, pensioner.observaciones,
+    pensioner.letra, pensioner.termino, pensioner.envio_juridico, pensioner.monto_cheque, pensioner.ajuste_cuota,
+    pensioner.estatus_expediente, pensioner.clasificacion, pensioner.que_se_liquida, pensioner.fecha_liquidacion,
+    pensioner.autoridad_cumplimiento, pensioner.materia, pensioner.numero_uj, pensioner.fecha_uj, pensioner.numero_sp,
+    pensioner.fecha_sp, pensioner.fecha_sentencia, pensioner.integrador, pensioner.liquidador, pensioner.estado_final]
+  end
+end

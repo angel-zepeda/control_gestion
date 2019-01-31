@@ -1,0 +1,96 @@
+<p id="notice"><%= notice %></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Turno</th>
+      <th scope="col">Numero oficio</th>
+      <th scope="col">Fecha oficio</th>
+      <th scope="col">Fecha recepcion</th>
+      <th scope="col">Nombre promovente</th>
+      <th scope="col">Numero juicio</th>
+      <th scope="col">Numero correspondencia</th>
+      <th scope="col">Numero pensión</th>
+      <th scope="col">Sala</th>
+      <th scope="col">Tipo expediente</th>
+      <th scope="col">Numero expediente</th>
+      <th scope="col">Observaciones</th>
+      <th scope="col">Letra</th>
+      <th scope="col">Termino de la sentencia</th>
+      <th scope="col">Envio juridico</th>
+      <th scope="col">Monto cheque</th>
+      <th scope="col">Ajuste cuota</th>
+      <th scope="col">Estatus del expediente</th>
+      <th scope="col">Clasificación del expediente</th>
+      <th scope="col">Anexos</th>
+
+      <th colspan="3"></th>
+    </tr>
+
+  </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @pensioner.turno %></td>
+        <td><%= @pensioner.numero_oficio %></td>
+        <td><%= @pensioner.fecha_oficio %></td>
+        <td><%= @pensioner.fecha_recepcion %></td>
+        <td><%= @pensioner.promovente %></td>
+        <td><%= @pensioner.numero_juicio %></td>
+        <td><%= @pensioner.numero_correspondencia %></td>
+        <td><%= @pensioner.numero_pension %></td>
+        <td><%= @pensioner.sala %></td>
+        <td><%= @pensioner.tipo_expediente %></td>
+        <td><%= @pensioner.numero_expediente %></td>
+        <td><%= @pensioner.observaciones %></td>
+        <td><%= @pensioner.letra%></td>
+        <td><%= @pensioner.termino%></td>
+        <td><%= @pensioner.envio_juridico %></td>
+        <td><%= @pensioner.monto_cheque %></td>
+        <td><%= @pensioner.ajuste_cuota %></td>
+        <td><%= @pensioner.estatus_expediente%></td>
+        <td><%= @pensioner.clasificacion%></td>
+        <td><%= link_to @pensioner.anexo2.original_filename, @pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
+        <td><%= link_to @pensioner.anexo3.original_filename, @pensioner.anexo3.url, target: '_blank', id:'pdf-link' %></td>
+        <td><%= link_to @pensioner.anexo4.original_filename, @pensioner.anexo4.url, target: '_blank', id:'pdf-link' %></td>
+        <td><%= link_to @pensioner.anexo5.original_filename, @pensioner.anexo5.url, target: '_blank', id:'pdf-link' %></td>
+        <td><%= link_to @pensioner.anexo6.original_filename, @pensioner.anexo6.url, target: '_blank', id:'pdf-link' %></td>
+        <td><%= link_to @pensioner.anexo7.original_filename, @pensioner.anexo7.url, target: '_blank', id:'pdf-link' %></td>
+        <td><%= link_to @pensioner.anexo8.original_filename, @pensioner.anexo8.url, target: '_blank', id:'pdf-link' %></td>
+        <td><%= link_to @pensioner.anexo9.original_filename, @pensioner.anexo9.url, target: '_blank', id:'pdf-link' %></td>
+        <% if current_user.role == 'coordinador' %>
+          <tr>
+            <th scope="col">Què se liquida</th>
+            <th scope="col">Fecha liquidación</th>
+            <th scope="col">Autoridad cumplimiento</th>
+            <th scope="col">Materia</th>
+            <th scope="col">Número UJ</th>
+            <th scope="col">Fecha UJ</th>
+            <th scope="col">Número SP</th>
+            <th scope="col">Fecha SP</th>
+            <th scope="col">Fecha sentencia</th>
+            <th scope="col">Integrador</th>
+            <th scope="col">Liquidador</th>
+            <th scope="col">Estatus Final</th>
+            <th colspan="3"></th>
+          </tr>
+          <tr>
+            <td><%= @pensioner.que_se_liquida %></td>
+            <td><%= @pensioner.fecha_liquidacion %></td>
+            <td><%= @pensioner.autoridad_cumplimiento %></td>
+            <td><%= @pensioner.materia %></td>
+            <td><%= @pensioner.numero_uj %></td>
+            <td><%= @pensioner.fecha_uj %></td>
+            <td><%= @pensioner.numero_sp %></td>
+            <td><%= @pensioner.fecha_sp %></td>
+            <td><%= @pensioner.fecha_sentencia %></td>
+            <td><%= @pensioner.integrador %></td>
+            <td><%= @pensioner.liquidador %></td>
+            <td><%= @pensioner.estado_final %></td>
+          </tr>
+        <% end %>
+      </tr>
+    </tbody>
+  </tbody>
+</table>
+<%= link_to 'Editar', edit_pensioner_path(@pensioner), class:'btn btn-danger'%>
+<%= link_to 'Atras', pensioners_path, class:'btn btn-secondary'%>

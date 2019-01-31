@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<div class="resultados"></div>
+
+<div class="row">
+<%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
+  <%= text_field :keyword, nil, placeholder: 'Buscador'%>
+  <%= button_tag :Enviar, class:'btn btn-secondary'%>
+<% end %>
+<hr>
+<!-- <%= form_tag '/search/filter', method: :get, remote: true, id: "search-form" do %>
+  <%= date_select :date_keyword, nil%>
+  <%= button_tag :Enviar%>
+<% end %> -->
+  <% if current_user.role == 'coordinador' %>
+    <%= button_tag :Atendidos, class:'btn btn-warning mr-3'%>
+    <%= button_tag 'En firma', class:'btn btn-primary mr-3'%>
+    <%= button_tag 'Por antender', class:'btn btn-info mr-3'%>
+    <%= link_to "EXPORTAR xlsx", pensioners_path(format: "xlsx"),class:'btn btn-success text-white'%>
+  <% end %>
+</div>
+
+
+<br>
+<% if current_user.role.include?('secretaria')%>
+  <%= link_to 'Nuevo registro', new_pensioner_path, class:'btn btn-primary text-white float-right mb-3' %>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Turno</th>
+      <th scope="col">Número oficio</th>
+      <th scope="col">Fecha oficio</th>
+      <th scope="col">Fecha recepción</th>
+      <th scope="col">Promovente</th>
+      <th scope="col">Número juicio</th>
+      <th scope="col">Turnado</th>
+      <th scope="col">Número correspondencia</th>
+      <th scope="col">Anexo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pensioners.each do |pensioner| %>
+      <tr>
+        <td><%= pensioner.turno %></td>
+        <td><%= pensioner.numero_oficio %></td>
+        <td><%= pensioner.fecha_oficio %></td>
+        <td><%= pensioner.fecha_recepcion %></td>
+        <td><%= pensioner.promovente %></td>
+        <td><%= pensioner.numero_juicio %></td>
+        <td><%= pensioner.turnado %></td>
+        <td><%= pensioner.numero_correspondencia%></td>
+        <td><%= link_to pensioner.anexo1.original_filename, pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
+        <% if current_user.role.include?('integrador') or current_user.role.include?('coordinador')%>
+          <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
+          <td><%= link_to 'Mostrar', pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
+
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @pensioners, previus_label: 'Anterior', next_label: 'Siguiente' %>
