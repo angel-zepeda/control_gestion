@@ -24,14 +24,14 @@ class Pensioner < ApplicationRecord
   has_attached_file :anexo12
   validates_attachment :anexo1, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
 
-  validates :turno,:numero_correspondencia, :numero_oficio,:fecha_oficio, :fecha_recepcion,
-    :promovente, :numero_juicio, :fecha_oficio, :turnado, :fecha_oficio, :anexo1, presence: true
+  # validates :turno,:numero_correspondencia, :numero_oficio,:fecha_oficio, :fecha_recepcion,
+  #   :promovente, :numero_juicio, :fecha_oficio, :turnado, :fecha_oficio, :anexo1, presence: true
 
   validates :numero_juicio, :numero_oficio, uniqueness: true
   validates :numero_pension, :numero_expediente, uniqueness: true
 
-  validates :numero_pension, :sala, :tipo_expediente, :numero_expediente, :estado_expediente, :letra, :termino,
-   :envio_juridico, :monto_cheque, :ajuste_cuota, :clasificacion, presence: true
+  # validates :numero_pension, :sala, :tipo_expediente, :numero_expediente, :estado_expediente, :letra, :termino,
+  #  :envio_juridico, :monto_cheque, :ajuste_cuota, :clasificacion, presence: true
 
 
 
