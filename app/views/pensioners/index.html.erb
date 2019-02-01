@@ -96,11 +96,8 @@
         <td><%= pensioner.turnado %></td>
         <td><%= pensioner.numero_correspondencia%></td>
         <td><%= link_to pensioner.anexo1.original_filename, pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
-        <% if current_user.role.include?('integrador') or current_user.role.include?('coordinador')%>
-          <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
-          <td><%= link_to 'Mostrar', pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
-
-        <% end %>
+        <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
+        <td><%= link_to 'Mostrar', pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
       </tr>
     <% end %>
   </tbody>

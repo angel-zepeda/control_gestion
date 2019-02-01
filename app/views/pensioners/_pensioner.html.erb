@@ -14,7 +14,7 @@
       <th scope="col">Numero correspondencia</th>
       <th scope="col">Anexos</th>
 
-      <% if current_user.role.include?('integrador')%>
+      <% if current_user.role.include?('integrador') or current_user.role.include?('integrador')%>
         <th scope="col">Numero pensión</th>
         <th scope="col">Sala</th>
         <th scope="col">Tipo expediente</th>
@@ -44,7 +44,7 @@
         <td><%= pensioner.numero_juicio %></td>
         <td><%= pensioner.numero_correspondencia %></td>
         <td><%= link_to pensioner.anexo1.original_filename, pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
-        <% if current_user.role.include?('integrador') %>
+        <% if current_user.role.include?('integrador') or current_user.role.include?('integrador')%>
           <td><%= pensioner.numero_pension %></td>
           <td><%= pensioner.sala %></td>
           <td><%= pensioner.tipo_expediente %></td>
@@ -103,5 +103,6 @@
     </tbody>
     <% if current_user.role.include?('integrador') or current_user.role.include?('coordinador')%>
       <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
+      <td><%= link_to 'Borrar', pensioner_path(pensioner), method: :destroy, class:'btn btn-secondary text-white' %></td>
     <% end %>
 </table>

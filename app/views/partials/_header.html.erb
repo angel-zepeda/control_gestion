@@ -1,4 +1,5 @@
 <nav class="navbar navbar-dark text-white" style="background-color: gray;">
+  <h2 class="text-center">Control de gestión</h2>
   <%if user_signed_in?%>
     <p>Bienvenido <%= current_user.email %></p>
     <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
