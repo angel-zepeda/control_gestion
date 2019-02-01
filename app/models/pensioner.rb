@@ -18,11 +18,23 @@ class Pensioner < ApplicationRecord
   has_attached_file :anexo9
   validates_attachment :anexo9, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
   has_attached_file :anexo10
-  validates_attachment :anexo1, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  validates_attachment :anexo10, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
   has_attached_file :anexo11
-  validates_attachment :anexo1, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  validates_attachment :anexo11, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
   has_attached_file :anexo12
-  validates_attachment :anexo1, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  validates_attachment :anexo12, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  has_attached_file :anexo13
+  validates_attachment :anexo13, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  has_attached_file :anexo14
+  validates_attachment :anexo14, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  has_attached_file :anexo15
+  validates_attachment :anexo15, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  has_attached_file :anexo16
+  validates_attachment :anexo16, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  has_attached_file :anexo17
+  validates_attachment :anexo17, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  has_attached_file :anexo18
+  validates_attachment :anexo18, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
 
   # validates :turno,:numero_correspondencia, :numero_oficio,:fecha_oficio, :fecha_recepcion,
   #   :promovente, :numero_juicio, :fecha_oficio, :turnado, :fecha_oficio, :anexo1, presence: true

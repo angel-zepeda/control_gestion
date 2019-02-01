@@ -16,20 +16,17 @@
         <%= form.label :turno %><br>
         <%= form.number_field :turno, class:'col-md-12 form-control' %>
       </div>
-
-      <div class="field col-md-3">
-        <%= form.label :numero_correspondencia %><br>
-        <%= form.text_field :numero_correspondencia, class:'col-md-12 form-control' %>
-      </div>
-
       <div class="field col-md-3">
         <%= form.label :numero_oficio %><br>
-        <%= form.number_field :numero_oficio, class:'col-md-12 form-control' %>
+        <%= form.text_field :numero_oficio, class:'col-md-12 form-control' %>
       </div>
-
       <div class="field col-md-3">
         <%= form.label :fecha_oficio %><br>
         <%= form.date_select :fecha_oficio, class:'col-md-12 form-control'%>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :numero_correspondencia %><br>
+        <%= form.text_field :numero_correspondencia, class:'col-md-12 form-control' %>
       </div>
 
       <div class="field col-md-3">
@@ -54,9 +51,35 @@
       </div>
 
       <div class="field col-md-3">
-        <%= form.label :Anexo %><br>
+        <%= form.label :Anexo1 %><br>
         <%= form.file_field :anexo1, class:'col-md-12 form-control'%>
       </div>
+
+      <div class="field col-md-3">
+        <%= form.label :Anexo2 %><br>
+        <%= form.file_field :anexo13, class:'col-md-12 form-control'%>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :Anexo3 %><br>
+        <%= form.file_field :anexo14, class:'col-md-12 form-control'%>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :Anexo4 %><br>
+        <%= form.file_field :anexo15, class:'col-md-12 form-control'%>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :Anexo5 %><br>
+        <%= form.file_field :anexo16, class:'col-md-12 form-control'%>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :Anexo6 %><br>
+        <%= form.file_field :anexo17, class:'col-md-12 form-control'%>
+      </div>
+      <div class="field col-md-3">
+        <%= form.label :Anexo7 %><br>
+        <%= form.file_field :anexo18, class:'col-md-12 form-control'%>
+      </div>
+
 
       <div class="actions col-md-12">
         <div class="float-left">

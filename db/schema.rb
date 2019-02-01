@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_181550) do
+ActiveRecord::Schema.define(version: 2019_02_01_015420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pensioners", force: :cascade do |t|
     t.integer "turno"
-    t.integer "numero_oficio"
+    t.string "numero_oficio"
     t.date "fecha_oficio"
     t.date "fecha_recepcion"
     t.string "promovente"
@@ -100,6 +100,30 @@ ActiveRecord::Schema.define(version: 2019_01_31_181550) do
     t.string "liquidador"
     t.string "integrador"
     t.string "estado_final"
+    t.string "anexo13_file_name"
+    t.string "anexo13_content_type"
+    t.bigint "anexo13_file_size"
+    t.datetime "anexo13_updated_at"
+    t.string "anexo14_file_name"
+    t.string "anexo14_content_type"
+    t.bigint "anexo14_file_size"
+    t.datetime "anexo14_updated_at"
+    t.string "anexo15_file_name"
+    t.string "anexo15_content_type"
+    t.bigint "anexo15_file_size"
+    t.datetime "anexo15_updated_at"
+    t.string "anexo16_file_name"
+    t.string "anexo16_content_type"
+    t.bigint "anexo16_file_size"
+    t.datetime "anexo16_updated_at"
+    t.string "anexo17_file_name"
+    t.string "anexo17_content_type"
+    t.bigint "anexo17_file_size"
+    t.datetime "anexo17_updated_at"
+    t.string "anexo18_file_name"
+    t.string "anexo18_content_type"
+    t.bigint "anexo18_file_size"
+    t.datetime "anexo18_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

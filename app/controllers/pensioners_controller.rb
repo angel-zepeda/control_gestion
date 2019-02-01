@@ -94,6 +94,8 @@ class PensionersController < ApplicationController
                                       :liquidador, :estado_final,
                                       :anexo2, :anexo3, :anexo4,
                                       :anexo5, :anexo6, :anexo7, :anexo8, :anexo9,
-                                      :anexo10, :anexo11, :anexo12)
+                                      :anexo10, :anexo11, :anexo12,
+                                      :anexo13, :anexo14, :anexo15,
+                                      :anexo16, :anexo17, :anexo18)
   end
 end

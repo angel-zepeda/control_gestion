@@ -60,42 +60,34 @@
           <% if pensioner.anexo2?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
           <% if pensioner.anexo3?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
           <% if pensioner.anexo4?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
           <% if pensioner.anexo5?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
           <% if pensioner.anexo6?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
           <% if pensioner.anexo7?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
           <% if pensioner.anexo8?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
           <% if pensioner.anexo9?%>
             <td><%= link_to pensioner.anexo2.original_filename, pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
             <% else %>
-            <td>.</td>
           <% end %>
 
         <% end %>
@@ -103,6 +95,6 @@
     </tbody>
     <% if current_user.role.include?('integrador') or current_user.role.include?('coordinador')%>
       <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
-      <td><%= link_to 'Borrar', pensioner_path(pensioner), method: :destroy, class:'btn btn-secondary text-white' %></td>
+      <td><%= link_to 'Borrar', pensioner, method: :delete, class:'btn btn-secondary text-white' %></td>
     <% end %>
 </table>

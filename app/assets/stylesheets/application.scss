@@ -9,7 +9,8 @@ body, html {
   background-color: #eeeeee
 }
 td { text-align: center; }
-th {  font-size: 13px; color: green; text-align: center;}
+th {  font-size: 13px; text-align: center;}
+
 a,a:visited {
   color: inherit;
 }
@@ -29,4 +30,14 @@ a:hover {
 #pdf-link {
   text-decoration: underline;
   color: blue;
+}
+
+.paginate {
+  padding: 3px;
+  border: 1px solid gray;
+  a {
+    color: blue;
+    padding: 5px;
+
+  }
 }

@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 <% if current_user.role == 'secretaria' %>
-  <div class="row">
-    <div class="col-md-8">
-    <%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
-      <%= text_field :keyword, nil, placeholder: 'Buscador', class:'form-control col-md-6'%>
-      <br>
-      <%= button_tag :Buscar, class:'btn btn-secondary col-md-3'%>
-    <% end %>
-  </div>
-    </div>
+<div class="resultados"></div>
+  <%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
+    <%= text_field :keyword, nil, placeholder: 'Buscador'%>
+    <%= button_tag :Buscar, class:'btn btn-secondary'%>
+  <% end %>
+  <%= link_to 'NUEVO REGISTRO', new_pensioner_path, class:'btn btn-success text-white float-right mb-1' %>
 <% end %>
+
 <% if current_user.role == 'integrador' %>
   <div class="row">
     <div class="col-md-8">
@@ -25,6 +23,7 @@
     </div>
   </div>
   </div>
+  <div class="resultados"></div>
 <% end %>
 <% if current_user.role == 'coordinador' %>
   <div class="row">
@@ -41,34 +40,13 @@
     </div>
   </div>
   </div>
+  <div class="resultados"></div>
 <% end %>
-
-<div class="resultados"></div>
-<!-- <%= form_tag '/search/filter', method: :get, remote: true, id: "search-form" do %>
-  <%= date_select :date_keyword, nil%>
-  <%= button_tag :Enviar%>
-<% end %> -->
-<!-- <div class="col-md-12">
-
-  <% if current_user.role == 'coordinador' %>
-    <%= form_tag '/search/create', method: :get, remote: true, id: "search-form" do %>
-      <%= text_field :keyword, nil, placeholder: 'Buscador', class:'form-control'%>
-      <br>
-      <%= button_tag :Buscar, class:'btn btn-secondary'%>
-    <% end %>
-    <%= button_tag :Atendidos, class:'btn btn-warning mr-3'%>
-    <%= button_tag 'En firma', class:'btn btn-primary mr-3'%>
-    <%= button_tag 'Por antender', class:'btn btn-info mr-3'%>
-    <%= link_to "EXPORTAR xlsx", pensioners_path(format: "xlsx"),class:'btn btn-info text-white'%>
-  <% end %>
-</div> -->
-
 
 
 <br>
-<% if current_user.role.include?('secretaria')%>
-  <%= link_to 'Nuevo registro', new_pensioner_path, class:'btn btn-primary text-white float-right mb-3' %>
 
+<% if current_user.role.include?('secretaria')%>
   <table class="table table-striped table-bordered">
     <thead class="thead-dark">
     <tr>
@@ -95,7 +73,35 @@
         <td><%= pensioner.numero_juicio %></td>
         <td><%= pensioner.turnado %></td>
         <td><%= pensioner.numero_correspondencia%></td>
-        <td><%= link_to pensioner.anexo1.original_filename, pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
+        <% if pensioner.anexo1?%>
+          <td><%= link_to pensioner.anexo1.original_filename, pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
+          <% else %>
+          <td></td>
+        <% end %>
+        <% if pensioner.anexo13?%>
+          <td><%= link_to pensioner.anexo13.original_filename, pensioner.anexo13.url, target: '_blank', id:'pdf-link' %></td>
+          <% else %>
+        <% end %>
+        <% if pensioner.anexo14?%>
+          <td><%= link_to pensioner.anexo14.original_filename, pensioner.anexo14.url, target: '_blank', id:'pdf-link' %></td>
+          <% else %>
+        <% end %>
+        <% if pensioner.anexo15?%>
+          <td><%= link_to pensioner.anexo15.original_filename, pensioner.anexo15.url, target: '_blank', id:'pdf-link' %></td>
+          <% else %>
+        <% end %>
+        <% if pensioner.anexo16?%>
+          <td><%= link_to pensioner.anexo16.original_filename, pensioner.anexo16.url, target: '_blank', id:'pdf-link' %></td>
+          <% else %>
+        <% end %>
+        <% if pensioner.anexo17?%>
+          <td><%= link_to pensioner.anexo17.original_filename, pensioner.anexo17.url, target: '_blank', id:'pdf-link' %></td>
+          <% else %>
+        <% end %>
+        <% if pensioner.anexo18?%>
+          <td><%= link_to pensioner.anexo18.original_filename, pensioner.anexo18.url, target: '_blank', id:'pdf-link' %></td>
+          <% else %>
+        <% end %>
         <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
         <td><%= link_to 'Mostrar', pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
       </tr>
@@ -103,4 +109,6 @@
   </tbody>
 </table>
 <% end %>
-<%= will_paginate @pensioners, previus_label: 'Anterior', next_label: 'Siguiente' %>
+<% if current_user.role.include?('secretaria')%>
+  <%= will_paginate @pensioners,:previous_label => 'Anterior ' ,:next_label => :Siguiente, class:'paginate text-center' %>
+<% end %>
