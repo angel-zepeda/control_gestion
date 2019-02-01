@@ -75,32 +75,26 @@
         <td><%= pensioner.numero_correspondencia%></td>
         <% if pensioner.anexo1?%>
           <td><%= link_to pensioner.anexo1.original_filename, pensioner.anexo1.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
+          <%else%>
           <td></td>
         <% end %>
         <% if pensioner.anexo13?%>
           <td><%= link_to pensioner.anexo13.original_filename, pensioner.anexo13.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
         <% end %>
         <% if pensioner.anexo14?%>
           <td><%= link_to pensioner.anexo14.original_filename, pensioner.anexo14.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
         <% end %>
         <% if pensioner.anexo15?%>
           <td><%= link_to pensioner.anexo15.original_filename, pensioner.anexo15.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
         <% end %>
         <% if pensioner.anexo16?%>
           <td><%= link_to pensioner.anexo16.original_filename, pensioner.anexo16.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
         <% end %>
         <% if pensioner.anexo17?%>
           <td><%= link_to pensioner.anexo17.original_filename, pensioner.anexo17.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
         <% end %>
         <% if pensioner.anexo18?%>
           <td><%= link_to pensioner.anexo18.original_filename, pensioner.anexo18.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
         <% end %>
         <td><%= link_to 'Editar', edit_pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>
         <td><%= link_to 'Mostrar', pensioner_path(pensioner),class:'btn btn-secondary text-white' %></td>

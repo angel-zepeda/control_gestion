@@ -53,42 +53,28 @@
         <% if @pensioner.anexo2?%>
           <td><%= link_to @pensioner.anexo2.original_filename, @pensioner.anexo2.url, target: '_blank', id:'pdf-link' %></td>
           <% else %>
-          <td>.</td>
+          <td></td>
         <% end %>
         <% if @pensioner.anexo3?%>
           <td><%= link_to @pensioner.anexo3.original_filename, @pensioner.anexo3.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
-          <td>.</td>
         <% end %>
         <% if @pensioner.anexo4?%>
           <td><%= link_to @pensioner.anexo4.original_filename, @pensioner.anexo4.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
-          <td>.</td>
         <% end %>
         <% if @pensioner.anexo5?%>
           <td><%= link_to @pensioner.anexo5.original_filename, @pensioner.anexo5.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
-          <td>.</td>
         <% end %>
         <% if @pensioner.anexo6?%>
           <td><%= link_to @pensioner.anexo6.original_filename, @pensioner.anexo6.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
-          <td>.</td>
         <% end %>
         <% if @pensioner.anexo7?%>
           <td><%= link_to @pensioner.anexo7.original_filename, @pensioner.anexo7.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
-          <td>.</td>
         <% end %>
         <% if @pensioner.anexo8?%>
           <td><%= link_to @pensioner.anexo8.original_filename, @pensioner.anexo8.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
-          <td>.</td>
         <% end %>
         <% if @pensioner.anexo9?%>
           <td><%= link_to @pensioner.anexo9.original_filename, @pensioner.anexo9.url, target: '_blank', id:'pdf-link' %></td>
-          <% else %>
-          <td>.</td>
         <% end %>
 
         <% if current_user.role == 'coordinador' %>
@@ -126,5 +112,5 @@
     </tbody>
   </tbody>
 </table>
-<%= link_to 'Atras', pensioners_path, class:'btn btn-info text-white'%>
+<%= link_to 'Atras', pensioners_path, class:'btn btn-secondary text-white'%>
 <%= link_to 'Editar', edit_pensioner_path(@pensioner), class:'btn btn-danger text-white'%>
