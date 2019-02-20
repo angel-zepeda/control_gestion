@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: issste_administration_production
-  username: issste_administration
+  username: isste_administration
   password: <%= ENV['ISSSTE_ADMINISTRATION_DATABASE_PASSWORD'] %>
