@@ -31,9 +31,8 @@ class PensionersController < ApplicationController
   # POST /pensioners.json
   def create
     @pensioner = Pensioner.new(pensioner_params)
-
-    respond_to do |format|
       if @pensioner.save
+        respond_to do |format|
         format.html { redirect_to @pensioner, notice: 'Pensioner was successfully created.' }
         format.json { render :show, status: :created, location: @pensioner }
       else
@@ -93,9 +92,6 @@ class PensionersController < ApplicationController
                                       :fecha_sentencia, :integrador,
                                       :liquidador, :estado_final,
                                       :anexo2, :anexo3, :anexo4,
-                                      :anexo5, :anexo6, :anexo7, :anexo8, :anexo9,
-                                      :anexo10, :anexo11, :anexo12,
-                                      :anexo13, :anexo14, :anexo15,
-                                      :anexo16, :anexo17, :anexo18)
+                                      :anexo5, :anexo6, :anexo7, :anexo8, :anexo9, :anexo10, :anexo11, :anexo12,:anexo13, :anexo14, :anexo15,:anexo16, :anexo17, :anexo18)
   end
 end
